@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign In</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#f4f4f4;
+  margin:0;
+   background-color: #00754a;
+}
+
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  background:white;
+  border-bottom:1px solid #ddd;
+}
+
+
+.container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:80vh;
+}
+
+.card{
+  background:white;
+  padding:40px;
+  width:400px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.signin-btn{
+  background:#00754a;
+  color:white;
+  border:none;
+  padding:12px;
+  width:100%;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.signin-btn:hover{
+  background:#005f3a;
+}
+
+.forgot{
+  text-align:center;
+  margin:15px 0;
+  color:#00754a;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <h2>Starbucks</h2>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>Sign in to your account</h2>
+
+    <form onsubmit="login(event)">
+      <input type="email" placeholder="Email Address" required>
+      <input type="password" placeholder="Password" required>
+
+      <div class="forgot">Forgot your password?</div>
+
+      <button class="signin-btn">Sign In</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function login(e) {
+  e.preventDefault();
+
+  
+  localStorage.setItem("signedIn", "true");
+
+  
+  window.location.href = "exam.html";
+}
+</script>
+</body>
+</html>
+</html>
