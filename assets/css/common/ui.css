@@ -1,0 +1,18 @@
+
+.rounded-button, .primary-button {
+    cursor: pointer;
+    padding: 7px 16px;
+    font-weight: bold;
+}
+
+.rounded-button {
+    border-radius: 20px;
+}
+
+.primary-button {
+    background-color: #00754a;
+    border: none;
+    color: white;
+}
+
+

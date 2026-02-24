@@ -1,0 +1,50 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left {
+    gap: 30px;
+}
+
+.nav-right {
+    gap: 15px;
+}
+
+.logo {
+    width: 50px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-right: 20px;
+}
+
+.nav-links a:hover {
+    color: #00754a;
+}
+
+.find-store {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.sign-in-button {
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+}

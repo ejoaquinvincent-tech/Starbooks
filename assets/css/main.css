@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #00754a;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #cfd9a8 70%, #c7bdd9 30%);
+    min-height: 500px;
+}
+
+.hero-text {
+    padding-left: 64px;
+}
+
+.hero-text h1 {
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    padding: 12px 24px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    background: white;
+    color: #1e3932;
+}
+
+.hero-image img:first-of-type {
+    transform: translateY(-67px);
+}
+
+.floating-drink {
+    width: 250px;
+    animation: float 3s ease-in-out infinite;
+}
+
