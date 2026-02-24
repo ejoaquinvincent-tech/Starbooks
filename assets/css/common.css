@@ -18,3 +18,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
+
+.main-container {
+    margin-top: 57px;
+}
