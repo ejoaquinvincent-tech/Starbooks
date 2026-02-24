@@ -3,8 +3,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
-    background: white;
-    border-bottom: 1px solid #ddd;
+    background: var(--color-topbar-bg);
+    border-bottom: 1px solid var(--color-topbar-border);
 }
 
 .nav-left,
@@ -18,7 +18,7 @@
 }
 
 .nav-right {
-    gap: 15px;
+    gap: 30px;
 }
 
 .logo {
@@ -27,24 +27,18 @@
 
 .nav-links a {
     text-decoration: none;
-    color: black;
+    color: var(--color-nav-text);
     font-weight: bold;
     letter-spacing: 1px;
     margin-right: 20px;
 }
 
 .nav-links a:hover {
-    color: #00754a;
+    color: var(--color-nav-text-hover);
 }
 
 .find-store {
     text-decoration: none;
-    color: black;
+    color: var(--color-nav-text);
     font-weight: 500;
-}
-
-.sign-in-button {
-    /* border: 1px solid black;
-    text-decoration: none;
-    color: black; */
 }

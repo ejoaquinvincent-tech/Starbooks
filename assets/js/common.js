@@ -1,8 +1,10 @@
 const isLoggedIn = localStorage.getItem("isLoggedIn");
 
-if (true /* isLoggedIn === "true" */) {
+if (false /* isLoggedIn === "true" */) {
     const loginButton = document.getElementById('sign-in-button'); // the id always available because navbar IS always present in each page
 
     loginButton.innerHTML = "Signed";
-    loginButton.classList.add('primary-button')
+    loginButton.classList.replace('outlined-button', 'primary-button');
 }
+
+// document.documentElement.setAttribute('ui-theme', 'dark');

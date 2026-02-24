@@ -1,0 +1,35 @@
+a.button,
+a.primary-button,
+a.rounded-button,
+a.outlined-button {
+    text-decoration: none;
+}
+
+/* common base */
+.button,
+.primary-button {
+    cursor: pointer;
+    padding: 7px 16px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* primary variant */
+.button {
+    background-color: transparent;
+    color: var(--text-color);
+
+    --outlined-button-bc: var(--inverse-white)
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: var(--inverse-black);
+}
+
+.outlined-button {
+    border-radius: 24px;
+    border: 2px solid var(--button-outlined-bc, var(--inverse-white));
+}
+

@@ -1,117 +1,19 @@
 /* ── Light Mode (Default) ── */
 html,
 html[ui-theme="light"] {
-    /* Brand Greens */
-    --color-starbucks-green: #00754a; /* Primary brand green */
-    --color-starbucks-green-hover: #005c39; /* Hover / active state */
-    --color-starbucks-green-light: #d4e9e2; /* Tinted green surface */
-    --color-starbucks-green-subtle: #f2f8f5; /* Very light green wash */
-    --color-accent-green: #1e3932; /* Dark forest green (logo bg) */
+    --primary-color: #006241;
+    --accent-color: #00754A;
+    --topbar-color: #FFFFFF;
 
-    /* Neutrals */
-    --color-black: #1e1e1e;
-    --color-text-primary: #1a1a1a;
-    --color-text-secondary: #4b4b4b;
-    --color-text-muted: #767676;
-    --color-text-inverse: #ffffff;
+    --text-color: #000000;
 
-    /* Backgrounds */
-    --color-bg-base: #ffffff;
-    --color-bg-subtle: #f7f7f7;
-    --color-bg-muted: #ebebeb;
-    --color-bg-overlay: rgba(0, 0, 0, 0.04);
+    --inverse-white: #000000;
+    --inverse-black: #FFFFFF;
 
-    /* Borders */
-    --color-border-default: #d1d1d1;
-    --color-border-strong: #a8a8a8;
-    --color-border-focus: #00754a;
+    --ghost-color: rgba(0, 0, 0, 0.6);
 
-    /* Warmth / Accent */
-    --color-warm-neutral: #cba258;
-    /* Gold / caramel accent */
-    --color-warm-neutral-light: #f5e6ca;
-    --color-warm-neutral-dark: #9a7a3a;
-
-    /* Semantic */
-    --color-error: #c0392b;
-    --color-error-bg: #fdf0ee;
-    --color-success: #00754a;
-    --color-success-bg: #d4e9e2;
-    --color-warning: #c47900;
-    --color-warning-bg: #fef3d8;
-
-    /* Rewards / Loyalty */
-    --color-rewards-gold: #cba258;
-    --color-rewards-gold-bg: #f9f1e3;
-
-    /* Typography */
-    --font-family-base: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-family-display: 'Sodo Sans', 'Lato', sans-serif;
-
-    /* Radii */
-    --radius-pill: 50px;
-    --radius-lg: 12px;
-    --radius-md: 8px;
-    --radius-sm: 4px;
-
-    /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.10);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
-
-    /* Focus ring */
-    --focus-ring: 0 0 0 3px rgba(0, 117, 74, 0.35);
+    --font: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 /* ── Dark Mode ── */
-html[ui-theme="dark"] {
-    /* Brand Greens */
-    --color-starbucks-green: #00a862; /* Brighter on dark bg for contrast */
-    --color-starbucks-green-hover: #00c470;
-    --color-starbucks-green-light: #003d24; /* Deep green surface */
-    --color-starbucks-green-subtle: #00261a; /* Darkest green wash */
-    --color-accent-green: #1e3932; /* Unchanged — logo bg */
-
-    /* Neutrals */
-    --color-black: #f5f5f5;
-    --color-text-primary: #f2f2f2;
-    --color-text-secondary: #c2c2c2;
-    --color-text-muted: #888888;
-    --color-text-inverse: #1a1a1a;
-
-    /* Backgrounds */
-    --color-bg-base: #1a1a1a;
-    --color-bg-subtle: #242424;
-    --color-bg-muted: #2e2e2e;
-    --color-bg-overlay: rgba(255, 255, 255, 0.05);
-
-    /* Borders */
-    --color-border-default: #3a3a3a;
-    --color-border-strong: #555555;
-    --color-border-focus: #00a862;
-
-    /* Warmth / Accent */
-    --color-warm-neutral: #d4a85a;
-    --color-warm-neutral-light: #3a2c12;
-    --color-warm-neutral-dark: #f0c97a;
-
-    /* Semantic */
-    --color-error: #e05c4b;
-    --color-error-bg: #2c1210;
-    --color-success: #00a862;
-    --color-success-bg: #003d24;
-    --color-warning: #e0a020;
-    --color-warning-bg: #2e2000;
-
-    /* Rewards / Loyalty */
-    --color-rewards-gold: #d4a85a;
-    --color-rewards-gold-bg: #2a1f08;
-
-    /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.40);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.50);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.60);
-
-    /* Focus ring */
-    --focus-ring: 0 0 0 3px rgba(0, 168, 98, 0.45);
-}
+html[ui-theme="dark"] { }
