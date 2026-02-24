@@ -5,12 +5,14 @@ html[ui-theme="light"] {
     --accent-color: #00754A;
     --topbar-color: #FFFFFF;
 
-    --text-color: #000000;
+    --text-color: #000;
 
-    --inverse-white: #000000;
-    --inverse-black: #FFFFFF;
+    --button-default-hover-color: rgba(0, 0, 0, 0.6);
+    --button-default-border-color: #000;
 
-    --ghost-color: rgba(0, 0, 0, 0.6);
+    --button-positive-bg-color: #000;
+    --button-positive-text-color: #FFF;
+    --button-positive-hover-color: rgba(0, 0, 0, 0.7);
 
     --font: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
 }

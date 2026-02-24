@@ -1,0 +1,38 @@
+a.button,
+a.default-button,
+a.positive-button {
+    text-decoration: none;
+}
+
+/* common base */
+.button,
+.default-button,
+.positive-button {
+    cursor: pointer;
+    padding: 7px 16px;
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+/* variants */
+.button, .default-button {
+    background-color: transparent;
+    color: var(--text-color);
+}
+
+.default-button {
+    border: 2px solid transparent;
+}
+
+.debutton:hover {
+    background-color: var(--button-default-hover-color);
+}
+
+.positive-button {
+    background-color: var(--button-positive-bg-color);
+    color: var(--button-positive-text-color);
+}
+
+.positive-button:hover {
+    background-color: var(--button-positive-hover-color);
+}
