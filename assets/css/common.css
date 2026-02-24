@@ -1,4 +1,12 @@
-@import url(common/colors.css);
+@import url(common/tokens.css);
 @import url(common/animations.css);
 @import url(common/ui.css);
 @import url(common/navbar.css);
+
+body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-base);
+
+    margin: 0;
+}
