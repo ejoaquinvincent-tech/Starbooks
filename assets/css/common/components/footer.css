@@ -2,10 +2,19 @@
     padding: 12px 24px 12px 24px;;
 }
 
+.footer h2 {
+    font-weight: 600;
+}
+
+.footer > p {
+    font-weight: 100;
+}
+
 .links-container {
     display: flex;
     gap: 16px;
     flex-direction: row;
+    padding: 8px;
 }
 
 .links-container a:hover {
@@ -25,3 +34,17 @@
     width: 83.33333333%;
     margin-left: 8.33333333%;
 }
+
+.about-us-section a {
+    text-decoration: none;
+    color: var(--secondary-text-color);
+    letter-spacing: 1px;
+    margin-right: 20px;
+}
+
+.vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+

@@ -1,6 +1,8 @@
 /* ── Light Mode (Default) ── */
-html,
-html[ui-theme="light"] {
+/*,
+html[ui-theme="light"] */
+
+:root {
     --primary-color: #006241;
     --accent-color: #00754A;
     --topbar-color: #FFFFFF;
@@ -8,6 +10,8 @@ html[ui-theme="light"] {
     --text-color: #000;
     --secondary-text-color: #555;
     --divider-color: #e5e5e5;
+
+    --nav-text-hover-color: var(--accent-color);
 
     --button-default-hover-color: rgba(0, 0, 0, 0.6);
     --button-default-border-color: #000;
@@ -20,4 +24,4 @@ html[ui-theme="light"] {
 }
 
 /* ── Dark Mode ── */
-html[ui-theme="dark"] { }
+/* html[ui-theme="dark"] { } */

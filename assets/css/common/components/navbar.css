@@ -2,44 +2,52 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
     background: var(--topbar-color);
+    padding-left: 30px;
+    padding-right: 30px;
     box-shadow: 0 1px 3px rgb(0 0 0 / 10%), 0 2px 2px rgb(0 0 0 / 6%), 0 0 2px rgb(0 0 0 / 7%);
-    height: 57px;
+    height: 102px;
 }
 
 .nav-left,
 .nav-right {
     display: flex;
     align-items: center;
-}
-
-.nav-left {
-    gap: 30px;
-}
-
-.nav-right {
     gap: 30px;
 }
 
 .logo {
-    width: 50px;
+    width: 51px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
 }
 
 .nav-links a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: var(--color-nav-text);
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-right: 20px;
+    color: var(--text-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
 }
 
+/*
+.nav-links a[active] {
+    box-shadow: inset 0 -6px var(--accent-color);
+}
+*/
+
 .nav-links a:hover {
-    color: var(--color-nav-text-hover);
+    color: var(--nav-text-hover-color);
 }
 
 .find-store {
     text-decoration: none;
-    color: var(--color-nav-text);
+    color: var(--text-color);
     font-weight: 500;
 }
