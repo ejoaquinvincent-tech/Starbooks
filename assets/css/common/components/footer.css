@@ -22,7 +22,6 @@
     display: flex;
     height: 1px;
     background-color: var(--divider-color);
-    margin-bottom: 3rem;
     width: 83.33333333%;
     margin-left: 8.33333333%;
 }
