@@ -1,0 +1,28 @@
+.footer {
+    padding: 12px 24px 12px 24px;;
+}
+
+.links-container {
+    display: flex;
+    gap: 16px;
+    flex-direction: row;
+}
+
+.links-container a:hover {
+    transform: translateY(-5px);
+    transition: all 0.2s ease;
+}
+
+.links-container img {
+    width: 32px;
+    height: 32px;   
+}
+
+.section-divider {
+    display: flex;
+    height: 1px;
+    background-color: var(--divider-color);
+    margin-bottom: 3rem;
+    width: 83.33333333%;
+    margin-left: 8.33333333%;
+}

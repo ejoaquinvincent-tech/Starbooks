@@ -6,6 +6,8 @@ html[ui-theme="light"] {
     --topbar-color: #FFFFFF;
 
     --text-color: #000;
+    --secondary-text-color: #555;
+    --divider-color: #e5e5e5;
 
     --button-default-hover-color: rgba(0, 0, 0, 0.6);
     --button-default-border-color: #000;
