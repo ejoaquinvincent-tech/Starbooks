@@ -1,0 +1,42 @@
+  .card {
+            background: white;
+            padding: 40px;
+            width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .signin-btn {
+            background: #00754a;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .signin-btn:hover {
+            background: #005f3a;
+        }
+
+        .forgot {
+            text-align: center;
+            margin: 15px 0;
+            color: #00754a;
+            cursor: pointer;
+        }
