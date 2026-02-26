@@ -1,10 +1,11 @@
+/* Remove underline from anchor-based (<a href="..">) buttons */
 a.button,
 a.default-button,
 a.positive-button {
     text-decoration: none;
 }
 
-/* common base */
+/* Base styles shared by all button variants */
 .button,
 .default-button,
 .positive-button,
@@ -17,7 +18,9 @@ a.positive-button {
     text-decoration: none;
 }
 
-/* variants */
+/* --- Variants --- */
+
+/* Transparent background, inherits text color */
 .button,
 .default-button,
 .outlined-button {
@@ -25,23 +28,28 @@ a.positive-button {
     color: var(--text-color);
 }
 
+/* Highlights text on hover */
 .button:hover {
     color: var(--accent-color);
 }
 
+/* Transparent border placeholder to prevent layout shift on hover */
 .default-button {
     border: 2px solid transparent;
 }
 
+/* Shared hover background for default and outlined */
 .default-button:hover, .outlined-button:hover {
     background-color: var(--button-default-hover-color);
 }
 
+/* Filled button for primary/confirmative actions */
 .positive-button {
     background-color: var(--button-positive-bg-color);
     color: var(--button-positive-text-color);
 }
 
+/* Muted appearance when unavailable */
 .positive-button:disabled {
     background-color: var(--button-positive-disabled-bg-color);
     color: var(--button-positive-disabled-text-color);
@@ -53,6 +61,7 @@ a.positive-button {
     background-color: var(--button-positive-hover-color);
 }
 
+/* Bordered button, no fill */
 .outlined-button {
     border: 2px solid var(--text-color)
 }
