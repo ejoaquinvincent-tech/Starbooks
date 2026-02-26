@@ -27,6 +27,7 @@
     cursor: pointer;
     font-size: 16px;
     transition: 0.3s;
+    text-decoration: none;
 }
 
 .hero-btn:hover {
