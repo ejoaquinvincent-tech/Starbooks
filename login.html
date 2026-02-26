@@ -24,18 +24,23 @@
         </div>
     </header>
 
-    <div class="main-container">
-        <div class="login-card floating-card">
+    <div class="main-container-padded">
+        <div id="login-form" class="login-card floating-card">
             <h2>Sign in to your account</h2>
 
-            <form onsubmit="login(event)">
-                <input type="email" placeholder="Email Address" required>
-                <input type="password" placeholder="Password" required>
+            <form onsubmit="doLogin(event)">
+                <input id="login-email" type="email" placeholder="Email Address" required>
+                <input id="login-password" type="password" placeholder="Password" required>
 
-                <div class="forgot">Forgot your password?</div>
-
-                <button class="signin-btn">Sign In</button>
+                <!-- <div class="forgot">Forgot your password?</div> -->
+                
+                <button class="sign-in-button2">Sign In</button>
             </form>
+        </div>
+        <div id="already-logged-in" class="login-card floating-card">
+            <h2>Hi!</h2>
+            <p>Lookin' for a sip?</p>
+            <button class="positive-button" onclick="doLogout()">Log out</button>
         </div>
     </div>
 
@@ -70,8 +75,8 @@
         <p>© 2026 CLG 3 (meta) Company. All rights reserved.</p>
     </footer>
 
-    <script type="module" src="assets/js/common.js"></script>
-    <script type="module" src="assets/js/menu.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 
 </html>

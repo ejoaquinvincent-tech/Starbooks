@@ -14,6 +14,7 @@ a.positive-button {
     border-radius: 50px;
     font-weight: 600;
     border-style: none;
+    text-decoration: none;
 }
 
 /* variants */
