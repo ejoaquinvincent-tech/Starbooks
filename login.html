@@ -20,11 +20,23 @@
 
         <div class="nav-right">
             <a href="store.html" class="button find-store">Find a Store</a>
-            <a href="signin.html" class="positive-button sign-in-button">Sign in</a>
+            <a href="login.html" class="positive-button sign-in-button" id="sign-in-button">Sign in</a>
         </div>
     </header>
 
     <div class="main-container">
+         <div class="card">
+            <h2>Sign in to your account</h2>
+
+            <form onsubmit="login(event)">
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+
+                <div class="forgot">Forgot your password?</div>
+
+                <button class="signin-btn">Sign In</button>
+            </form>
+        </div>
     </div>
 
     <footer class="footer">
@@ -60,6 +72,17 @@
     </footer>
 
     <script type="module" src="assets/js/common.js"></script>
+    <script>
+        function login(e) {
+            e.preventDefault();
+
+
+            localStorage.setItem("isLoggedIn", "true");
+
+
+            window.location.href = "main.html";
+        }
+    </script>
 </body>
 
 </html>
