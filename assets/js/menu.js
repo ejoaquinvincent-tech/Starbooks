@@ -74,7 +74,7 @@ function getPrice(productId, size) {
 }
 
 // the cart
-const cart = new Map();
+let cart = new Map();
 
 function addToCart(productId, event) {
     if (event) event.preventDefault();
@@ -147,7 +147,8 @@ function updateCartDisplay() {
     let total = 0;
     let html = '';
 
-    for (const [id, data] of cart) {
+    const reversedEntries = Array.from(cart.entries()).reverse();
+    for (const [id, data] of reversedEntries) {
         total += getPrice(id, data.size) * data.quantity;
         html += buildCartItemHtml(id, data);
     }
