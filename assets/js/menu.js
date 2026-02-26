@@ -1,22 +1,22 @@
-// GRANDE_EXTRA and VENTI_EXTRA are the price offsets added on top of the tall (base) price
-// e.g. if tall = 145, then grande = 145 + 15 = 160, venti = 145 + 30 = 175
+// GRANDE_EXTRA at VENTI_EXTRA yung dagdag sa tall price para makuha ang grande at venti price.
+// e.g. kung tall = 145, grande = 145 + 15 = 160, venti = 145 + 30 = 175
 const GRANDE_EXTRA = 15;
 const VENTI_EXTRA = 30;
 
-// ID_TO_PRODUCT_MAP maps an id to a product's data.
-// say we call ID_TO_PRODUCT_MAP[0], this will return:
+// ID_TO_PRODUCT_MAP yung list ng lahat ng products, naka-index sa ID nila.
+// e.g. ID_TO_PRODUCT_MAP[0] ay:
 // {
 //     name: "Iced Raspberry Chocolate Mousse Oatmilk Latte",
 //     price: 205
 // }
-// which we can then access using:
+// tapos pwede mong i-access ganito:
 //   ID_TO_PRODUCT_MAP[0].name     → "Iced Raspberry Chocolate Mousse Oatmilk Latte"
-//   ID_TO_PRODUCT_MAP[0].price    → 205  (this is the tall/base price)
+//   ID_TO_PRODUCT_MAP[0].price    → 205  (tall/base price ito)
 //
-// to get grande/venti prices, use the getPrice() helper below instead of
-// accessing .price directly, so the offsets are handled for you.
+// para sa grande/venti prices, gamitin mo na lang yung getPrice() helper sa baba
+// para hindi mo na kailangang manu-manong i-add yung offset.
 //
-// it's const because product data doesn't change on runtime.
+// const ito kasi hindi naman nagbabago yung product data habang tumatakbo ang app.
 const ID_TO_PRODUCT_MAP = [
     // Featured Drinks
     { name: "Iced Raspberry Chocolate Mousse Oatmilk Latte", price: 205 }, // ID: 0
@@ -56,7 +56,7 @@ const ID_TO_PRODUCT_MAP = [
     { name: "Iced Black Tea Latte", price: 175 },                         // ID: 18
 ];
 
-// getPrice(productId, size) handles the offset math for you.
+// getPrice(productId, size) — dito na hawak yung offset math, hindi mo na kailangang gawin pa.
 // e.g.
 //   getPrice(0, "tall")   → 205
 //   getPrice(0, "grande") → 220
@@ -64,7 +64,7 @@ const ID_TO_PRODUCT_MAP = [
 function getPrice(productId, size) {
     const product = ID_TO_PRODUCT_MAP[productId];
 
-    // handle espresso's solo/doppio pricing
+    // espresso lang yung may object na price (solo/doppio), lahat ng iba number lang
     if (typeof product.price === "object") return product.price[size];
 
     if (size === "grande") return product.price + GRANDE_EXTRA;
@@ -73,9 +73,16 @@ function getPrice(productId, size) {
     return product.price; // tall
 }
 
-// the cart
+// cart yung Map na nag-hold ng lahat ng order ng user.
+// key = productId, value = { quantity, size }
+// e.g. cart.get(0) → { quantity: 2, size: "grande" }
+// Map ginagamit natin dito para consistent ang order at madaling mag-add/delete.
 let cart = new Map();
 
+// addToCart(productId, event) — nagdadagdag ng item sa cart.
+// kung bago pa yung product, mag-iinit muna ng entry na may quantity 0 at size "tall",
+// tapos dagdag ng 1. yung event param ay optional, para lang ma-prevent yung
+// default form submit kung kinukuha ito mula sa button click.
 function addToCart(productId, event) {
     if (event) event.preventDefault();
 
@@ -86,6 +93,9 @@ function addToCart(productId, event) {
     updateCartDisplay();
 }
 
+// changeSize(productId, newSize) — nagpapalit ng size ng item sa cart.
+// tinatawag ito kapag nag-click ang user sa Tall / Grande / Venti buttons.
+// wala itong ginagawa kung hindi pa nandoon yung item.
 function changeSize(productId, newSize) {
     if (!cart.has(productId)) return;
 
@@ -93,6 +103,8 @@ function changeSize(productId, newSize) {
     updateCartDisplay();
 }
 
+// decreaseQuantity(productId) — nagbabawas ng 1 sa quantity.
+// kung 1 na lang yung quantity at bababaan pa, tanggalin na lang yung item sa cart.
 function decreaseQuantity(productId) {
     if (!cart.has(productId)) return;
 
@@ -104,12 +116,17 @@ function decreaseQuantity(productId) {
     updateCartDisplay();
 }
 
+// buildSizeBtn(productId, size, current) — gumagawa ng size button (Tall/Grande/Venti).
+// kapag yung size ay yung currently selected, may "active" class siya.
+// nag-o-onclick ng changeSize() para ma-update yung cart.
 function buildSizeBtn(productId, size, current) {
     return `<button class="cart-size-btn ${size === current ? 'active' : ''}" onclick="changeSize(${productId}, '${size}')">
         ${size.charAt(0).toUpperCase() + size.slice(1)}
     </button>`;
 }
 
+// buildCartItemHtml(productId, { quantity, size }) — binubuo yung HTML ng isang cart item.
+// kasama yung product name, size buttons, quantity controls, at subtotal (price × quantity).
 function buildCartItemHtml(productId, { quantity, size }) {
     const { name } = ID_TO_PRODUCT_MAP[productId];
     const itemTotal = getPrice(productId, size) * quantity;
@@ -130,6 +147,12 @@ function buildCartItemHtml(productId, { quantity, size }) {
     </div>`;
 }
 
+// updateCartDisplay() — ino-update yung buong cart UI.
+// tatlong ginagawa nito:
+//   1. sine-save yung cart sa localStorage para hindi mawala kapag nag-refresh
+//   2. ina-update yung listahan ng items at yung total sa DOM
+//   3. dini-disable yung checkout button kung wala sa cart
+// tinatawag ito pagkatapos ng bawat cart change (add, remove, size change).
 function updateCartDisplay() {
     localStorage.setItem('cart', JSON.stringify(Array.from(cart.entries())));
 
@@ -138,6 +161,7 @@ function updateCartDisplay() {
 
     document.getElementById('checkout-button').disabled = cart.size === 0;
 
+    // kung wala sa cart, ipakita lang yung empty message at i-reset yung total
     if (cart.size === 0) {
         cartItems.innerHTML = '<p class="empty-cart-message">Your cart is empty.</p>';
         cartTotal.textContent = 'Total: P 0';
@@ -147,6 +171,7 @@ function updateCartDisplay() {
     let total = 0;
     let html = '';
 
+    // binaliktad yung order para yung pinakabagong item ay nasa itaas
     const reversedEntries = Array.from(cart.entries()).reverse();
     for (const [id, data] of reversedEntries) {
         total += getPrice(id, data.size) * data.quantity;
@@ -158,6 +183,8 @@ function updateCartDisplay() {
 }
 
 
+// kapag na-load yung page, kinukuha yung saved cart mula sa localStorage (kung meron).
+// kailangan i-parse yung JSON string at i-convert yung entries pabalik sa Map.
 const savedCart = JSON.parse(localStorage.getItem('cart'));
 if (savedCart) {
     for (const [id, data] of savedCart) {
@@ -165,4 +192,5 @@ if (savedCart) {
     }
 }
 
+// i-render agad yung cart after ma-restore yung data (o empty state kung wala)
 updateCartDisplay();
