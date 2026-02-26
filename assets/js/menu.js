@@ -73,6 +73,8 @@ function getPrice(productId, size) {
     return product.price; // tall
 }
 
+let nextOrderId = 0;
+
 // cart yung Map na nag-hold ng lahat ng order ng user.
 // key = productId, value = { quantity, size }
 // e.g. cart.get(0) → { quantity: 2, size: "grande" }
@@ -187,6 +189,13 @@ function updateCartDisplay() {
 
     cartItems.innerHTML = html;
     cartTotal.textContent = `Total: P ${total}`;
+}
+
+function checkout() {
+    clearCart();
+    updateCartDisplay();
+
+    alert(`We appreciate your patronage and hope you enjoy your purchase. Your order ID is: ${nextOrderId++}`);
 }
 
 
