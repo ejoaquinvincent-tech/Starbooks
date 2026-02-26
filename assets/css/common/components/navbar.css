@@ -1,3 +1,6 @@
+/* style of the navigation bar
+ on each webpage */
+
 .navbar {
     display: flex;
     justify-content: space-between;

@@ -79,6 +79,9 @@ function getPrice(productId, size) {
 // Map ginagamit natin dito para consistent ang order at madaling mag-add/delete.
 let cart = new Map();
 
+// nagbabago bawat add sa cart
+let total = 0;
+
 // addToCart(productId, event) — nagdadagdag ng item sa cart.
 // kung bago pa yung product, mag-iinit muna ng entry na may quantity 0 at size "tall",
 // tapos dagdag ng 1. yung event param ay optional, para lang ma-prevent yung
@@ -148,7 +151,7 @@ function buildCartItemHtml(productId, { quantity, size }) {
                 <span>x${quantity}</span>
                 <button class="quantity-btn" onclick="addToCart(${productId})">+</button>
             </div>
-            <span class="cart-item-price">P ${itemTotal}</span>
+            <span class="cart-item-price">₱${itemTotal}</span>
         </div>
     </div>`;
 }
@@ -171,11 +174,11 @@ function updateCartDisplay() {
     // kung wala sa cart, ipakita lang yung empty message at i-reset yung total
     if (cart.size === 0) {
         cartItems.innerHTML = '<p class="empty-cart-message">Your cart is empty.</p>';
-        cartTotal.textContent = 'Total: P 0';
+        cartTotal.textContent = 'Total: ₱0';
         return;
     }
 
-    let total = 0;
+    total = 0;
     let html = '';
 
     // binaliktad yung order para yung pinakabagong item ay nasa itaas
@@ -186,17 +189,37 @@ function updateCartDisplay() {
     }
 
     cartItems.innerHTML = html;
-    cartTotal.textContent = `Total: P ${total}`;
+    cartTotal.textContent = `Total: ₱${total}`;
 }
 
 function checkout() {
+    let money = prompt('How much money will you pay?', 0)
+    if (money === null) return; // user cancelled the prompt
+
+    if (isNaN(money)) { // user inputted wrong values
+        alert('Please enter a valid value!');
+        checkout();
+        return;
+    }
+
+    if (money < total) { // money not enough
+        alert('Not enough money! Please have sufficient money before checking out.');
+        return;
+    }
+
     clearCart();
     updateCartDisplay();
 
     let nextOrderId = localStorage.getItem('nextOrderId');
     if (!nextOrderId) nextOrderId = 1;
 
-    alert(`We appreciate your patronage and hope you enjoy your purchase. Your order ID is: ${nextOrderId}`);
+    alert(`
+        We appreciate your patronage and hope you enjoy your purchase.\n
+
+        Your change is ₱${money - total}\n
+
+        Your order ID is: ${nextOrderId}
+    `);
 
     localStorage.setItem(
         'nextOrderId', Number.parseInt(nextOrderId) + 1

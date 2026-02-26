@@ -1,6 +1,11 @@
 @import url(common/tokens.css);
 @import url(common/components.css);
 
+/* this file is imported
+ on every webpage, hence the name
+ 'common'. this css file contains
+ reusable styling (see common/components.css) */
+
 body {
     font-family: var(--font);
     font-feature-settings: "calt";

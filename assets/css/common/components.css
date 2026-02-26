@@ -3,8 +3,9 @@
 @import url(components/buttons.css);
 @import url(components/navbar.css);
 @import url(components/footer.css);
-@import url(components/text.css);
 @import url(components/positions.css);
 @import url(components/card.css);
 
 /* imported at common.css */
+/* home of the reusable styling */
+/* check the imports */
