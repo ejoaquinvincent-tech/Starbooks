@@ -194,17 +194,19 @@ function updateCartDisplay() {
 
 function checkout() {
     let money = prompt('How much money will you pay?', 0)
+    
+    // early return to prevent code below from executing
     if (money === null) return; // user cancelled the prompt
 
     if (isNaN(money)) { // user inputted wrong values
         alert('Please enter a valid value!');
         checkout();
-        return;
+        return; // early return to prevent code below from executing
     }
 
     if (money < total) { // money not enough
         alert('Not enough money! Please have sufficient money before checking out.');
-        return;
+        return; // early return to prevent code below from executing
     }
 
     clearCart();
