@@ -121,24 +121,30 @@
     max-width: 100px;
 }
 
-.floating-cart h4 {
-    margin: 0;
-    margin-bottom: 12px;
-}
-
 .floating-cart {
     margin-bottom: 24px;
     margin-right: 24px;
 
     padding: 24px;
+    padding-top: 4px;
 
     width: 25%;
-    max-height: 73%;
+    max-height: 70vh;
+    min-height: 20vh;
+    
     display: flex;
     flex-direction: column;
     z-index: 1030;
 
     background-color: var(--topbar-color);
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: auto;
 }
 
 #cart-items-container {

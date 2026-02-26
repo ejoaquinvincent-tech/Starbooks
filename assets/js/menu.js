@@ -116,6 +116,12 @@ function decreaseQuantity(productId) {
     updateCartDisplay();
 }
 
+function clearCart() {
+    cart.clear();
+
+    updateCartDisplay();
+}
+
 // buildSizeBtn(productId, size, current) — gumagawa ng size button (Tall/Grande/Venti).
 // kapag yung size ay yung currently selected, may "active" class siya.
 // nag-o-onclick ng changeSize() para ma-update yung cart.
@@ -160,6 +166,7 @@ function updateCartDisplay() {
     const cartTotal = document.getElementById('cart-total');
 
     document.getElementById('checkout-button').disabled = cart.size === 0;
+    document.getElementById('clear-cart-button').disabled = cart.size === 0;
 
     // kung wala sa cart, ipakita lang yung empty message at i-reset yung total
     if (cart.size === 0) {

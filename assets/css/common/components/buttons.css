@@ -7,7 +7,8 @@ a.positive-button {
 /* common base */
 .button,
 .default-button,
-.positive-button {
+.positive-button,
+.outlined-button {
     cursor: pointer;
     padding: 7px 16px;
     border-radius: 50px;
@@ -17,7 +18,8 @@ a.positive-button {
 
 /* variants */
 .button,
-.default-button {
+.default-button,
+.outlined-button {
     background-color: transparent;
     color: var(--text-color);
 }
@@ -30,7 +32,7 @@ a.positive-button {
     border: 2px solid transparent;
 }
 
-.default-button:hover {
+.default-button:hover, .outlined-button:hover {
     background-color: var(--button-default-hover-color);
 }
 
@@ -48,4 +50,8 @@ a.positive-button {
 
 .positive-button:hover {
     background-color: var(--button-positive-hover-color);
+}
+
+.outlined-button {
+    border: 2px solid var(--text-color)
 }

@@ -1,6 +1,7 @@
-/* ── Light Mode (Default) ── */
-/*,
-html[ui-theme="light"] */
+/* import at common.css */
+
+/* this files sole purpose 
+is just for colors */
 
 :root {
     --primary-color: #006241;
@@ -25,6 +26,3 @@ html[ui-theme="light"] */
 
     --font: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
-
-/* ── Dark Mode ── */
-/* html[ui-theme="dark"] { } */

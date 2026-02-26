@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Starbucks | Main</title>
+    <title>Heartbucks | Menu</title>
     <link rel="stylesheet" href="assets/css/common.css">
     <link rel="stylesheet" href="assets/css/menu.css">
 </head>
@@ -26,7 +26,10 @@
 
     <div class="main-container">
         <div class="floating-cart fixed-bottom-right floating-card">
-            <h4>Your cart</h4>
+            <div class="cart-header">
+                <h4>Your cart</h4>
+                <button class="positive-button" id="clear-cart-button" onclick="clearCart()">Clear</button>
+            </div>
             <div class="divider"></div>
             <div id="cart-items-container"></div>
             <div class="cart-footer">

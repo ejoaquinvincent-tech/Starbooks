@@ -1,5 +1,4 @@
 .dev-info-container {
-    padding: 24px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, auto);
@@ -14,10 +13,31 @@
     align-items: center;
 
     transition: all 0.5s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.dev-info.ribbon-corner::before {
+    content: attr(data-ribbon);   /* text comes from data-ribbon="Main Dev" */
+    position: absolute;
+    top: 18px;
+    left: -34px;
+    width: 130px;
+    background: #e53935;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
 }
 
 .dev-info:hover {
-    transform: translateY(-16px);
+    transform: translateY(-8px);
 }
 
 .dev-info.disabled {
@@ -28,4 +48,5 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    object-fit: cover;
 }
