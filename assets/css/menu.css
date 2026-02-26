@@ -183,6 +183,7 @@
     width: 100%;
     word-break: break-word;
     text-align: left;
+    margin-bottom: 0;
 }
 
 .cart-item-bottom {

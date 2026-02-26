@@ -115,7 +115,7 @@ function buildCartItemHtml(productId, { quantity, size }) {
     const itemTotal = getPrice(productId, size) * quantity;
 
     return `<div class="cart-item">
-        <span class="cart-item-name">${name}</span>
+        <h4 class="cart-item-name">${name}</h4>
         <div class="cart-size-selector">
             ${['tall', 'grande', 'venti'].map(s => buildSizeBtn(productId, s, size)).join('')}
         </div>
