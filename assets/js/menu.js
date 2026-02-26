@@ -195,7 +195,10 @@ function checkout() {
     clearCart();
     updateCartDisplay();
 
-    alert(`We appreciate your patronage and hope you enjoy your purchase. Your order ID is: ${nextOrderId++}`);
+    alert(`We appreciate your patronage and hope you enjoy your purchase. Your order ID is: ${nextOrderId}`);
+
+    nextOrderId++;
+    window.location.reload();
 }
 
 

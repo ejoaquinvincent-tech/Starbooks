@@ -21,7 +21,7 @@ function doLogout() {
     localStorage.setItem("isLoggedIn", "false");
     localStorage.setItem("accountName", "");
 
-    window.location.href = "login.html";
+    window.location.reload();
 }
 
 function updateView() {
