@@ -72,21 +72,88 @@ function computeIfAbsent(map, key, mappingFunction) {
 }
 
 // the cart
-let cart = {}
+let cart = new Map();
 
 function addToCart(productId, event) {
-    event.preventDefault(); // prevents the page from snapping to the top when you click a product
+    console.log("Adding product ID " + productId + " to cart.");
+    if (event) event.preventDefault(); // prevents the page from snapping to the top when you click a product
 
     computeIfAbsent(
         cart, productId,
-        () => { quantity: 1 }
+        () => ({ quantity: 0, size: "tall" }) // default quantity is 0, size is tall
     ).quantity++;
 
     updateCartDisplay();
 }
 
-function updateCartDisplay() {
-    for (const [id, data] in cart) {
-        
+function changeSize(productId, newSize) {
+    if (cart.has(productId)) {
+        cart.get(productId).size = newSize;
+        updateCartDisplay();
     }
 }
+
+function decreaseQuantity(productId) {
+    if (!cart.has(productId)) return;
+
+    const itemData = cart.get(productId);
+    if (itemData.quantity > 1) {
+        itemData.quantity--;
+    } else {
+        cart.delete(productId);
+    }
+
+    updateCartDisplay();
+}
+
+let emptyCartHtml = '<p class="empty-cart-message">Your cart is empty.</p>';
+
+function buildCartItemHtml(productId, quantity, size) {
+    const product = ID_TO_PRODUCT_MAP[productId];
+    const price = getPrice(productId, size);
+    const itemTotal = price * quantity;
+
+    return `<div class="cart-item"> 
+        <span class="cart-item-name">${product.name}</span>
+        <div class="cart-size-selector">
+            <button class="cart-size-btn ${size === 'tall' ? 'active' : ''}" onclick="changeSize(${productId}, 'tall')">Tall</button>
+            <button class="cart-size-btn ${size === 'grande' ? 'active' : ''}" onclick="changeSize(${productId}, 'grande')">Grande</button>
+            <button class="cart-size-btn ${size === 'venti' ? 'active' : ''}" onclick="changeSize(${productId}, 'venti')">Venti</button>
+        </div>
+        <div class="cart-item-bottom">
+            <div class="quantity-controls">
+                <button class="quantity-btn" onclick="decreaseQuantity(${productId})">-</button>
+                <span>x${quantity}</span>
+                <button class="quantity-btn" onclick="addToCart(${productId})">+</button>
+            </div>
+            <span class="cart-item-price">P ${itemTotal}</span>
+        </div>
+    </div>`;
+}
+
+function updateCartDisplay() {
+    let cartItems = document.getElementById('cart-items-container');
+    let cartTotal = document.getElementById('cart-total');
+
+    if (cart.size === 0) {
+        cartItems.innerHTML = emptyCartHtml;
+        cartTotal.textContent = 'Total: P 0';
+        return;
+    }
+
+    let html = '';
+    let total = 0;
+
+    for (const [id, data] of cart.entries()) {
+        const price = getPrice(id, data.size);
+        const itemTotal = price * data.quantity;
+        total += itemTotal;
+
+        html += buildCartItemHtml(id, data.quantity, data.size);
+    }
+
+    cartItems.innerHTML = html;
+    cartTotal.textContent = `Total: P ${total}`;
+}
+
+updateCartDisplay(); // initialize cart display on page load

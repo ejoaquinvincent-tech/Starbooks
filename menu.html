@@ -12,7 +12,7 @@
         <div class="nav-left">
             <a href="main.html">
                 <img src="assets/images/logo.svg" alt="Starbucks Logo" class="logo">
-            </a>    
+            </a>
             <nav class="nav-links">
                 <a href="menu.html">MENU</a>
             </nav>
@@ -29,8 +29,7 @@
             <section class="menu-section">
                 <h2 class="section-title">Featured Drinks</h2>
                 <div class="item-grid">
-
-                    <a href="#" class="item" onclick="addToCart(0, event)">
+                    <a href="#" class="item" onclick="addToCart(10, event)">
                         <div class="item-circle">
                             <img src="" alt="Iced Raspberry Chocolate Mousse Oatmilk Latte">
                             <div class="add-to-cart"><span>Add to Cart</span></div>
@@ -38,7 +37,7 @@
                         <span class="item-name">Iced Raspberry Chocolate Mousse Oatmilk Latte</span>
                     </a>
 
-                    <a href="#" class="item">
+                    <a href="#" class="item" onclick="addToCart(11, event)">
                         <div class="item-circle">
                             <img src="" alt="Raspberry Chocolate Mousse Oatmilk Latte">
                             <div class="add-to-cart"><span>Add to Cart</span></div>
@@ -46,7 +45,7 @@
                         <span class="item-name">Raspberry Chocolate Mousse Oatmilk Latte</span>
                     </a>
 
-                    <a href="#" class="item">
+                    <a href="#" class="item" onclick="addToCart(6, event)">
                         <div class="item-circle">
                             <img src="" alt="Raspberry Chocolate Mousse Oatmilk Frappuccino">
                             <div class="add-to-cart"><span>Add to Cart</span></div>
@@ -63,7 +62,7 @@
                 <div class="sub-section">
                     <p class="sub-title">Hot Coffee</p>
                     <div class="item-grid">
-                        <a href="#" class="item">
+                        <a href="#" class="item" onclick="addToCart(12, event)">
                             <div class="item-circle">
                                 <img src="" alt="Hot Brewed Coffee">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
@@ -76,7 +75,7 @@
                 <div class="sub-section">
                     <p class="sub-title">Iced Coffee</p>
                     <div class="item-grid">
-                        <a href="#" class="item">
+                        <a href="#" class="item" onclick="addToCart(13, event)">
                             <div class="item-circle">
                                 <img src="" alt="Iced Coffee">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
@@ -93,7 +92,7 @@
                 <div class="sub-section">
                     <p class="sub-title">Hot Espresso</p>
                     <div class="item-grid">
-                        <a href="#" class="item">
+                        <a href="#" class="item" onclick="addToCart(7, event)">
                             <div class="item-circle">
                                 <img src="" alt="Espresso">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
@@ -106,7 +105,7 @@
                 <div class="sub-section">
                     <p class="sub-title">Iced Espresso</p>
                     <div class="item-grid">
-                        <a href="#" class="item">
+                        <a href="#" class="item" onclick="addToCart(8, event)">
                             <div class="item-circle">
                                 <img src="" alt="Iced Espresso">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
@@ -175,45 +174,50 @@
             </section>
         </div>
 
-        <div class="floating-cart fixed-bottom-right">
+        <div class="floating-cart fixed-bottom-right floating-card">
             <h4>Your cart</h4>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <h2>About us</h2>
-        <div class="vertical-list about-us-section">
-            <a href="/about.html">Our Company</a>
-            <a href="/customer-service.html">Customer Service</a>
+            <hr>
+            <div id="cart-items-container"></div>
+            <div class="cart-footer">
+                <hr>
+                <div class="cart-total" id="cart-total">Total: P 0</div>
+            </div>
         </div>
 
-        <!-- <p class="secondary-text">Starbucks Corporation is an American multinational chain of coffeehouses and roastery reserves headquartered in Seattle, Washington. It is the world's largest coffeehouse chain.</p> -->
-        <br><br>
-        <div class="section-divider"></div>
-        <br><br>
-        <section class="links-container">
-            <a href="http://www.facebook.com/StarbucksPhilippines">
-                <img src="assets/images/icons/social_media/facebook.png" alt="Facebook">
-            </a>
+        <footer class="footer">
+            <h2>About us</h2>
+            <div class="vertical-list about-us-section">
+                <a href="/about.html">Our Company</a>
+                <a href="/customer-service.html">Customer Service</a>
+            </div>
 
-            <a href="http://www.twitter.com/StarbucksPH">
-                <img src="assets/images/icons/social_media/twitter.png" alt="Twitter">
-            </a>
+            <!-- <p class="secondary-text">Starbucks Corporation is an American multinational chain of coffeehouses and roastery reserves headquartered in Seattle, Washington. It is the world's largest coffeehouse chain.</p> -->
+            <br><br>
+            <div class="section-divider"></div>
+            <br><br>
+            <section class="links-container">
+                <a href="http://www.facebook.com/StarbucksPhilippines">
+                    <img src="assets/images/icons/social_media/facebook.png" alt="Facebook">
+                </a>
 
-            <a href="http://www.instagram.com/StarbucksPH">
-                <img src="assets/images/icons/social_media/instagram.png" alt="Instagram">
-            </a>
+                <a href="http://www.twitter.com/StarbucksPH">
+                    <img src="assets/images/icons/social_media/twitter.png" alt="Twitter">
+                </a>
 
-            <a href="https://www.youtube.com/channel/UColvYenSJ5Lc4cKrlb0Ajrw">
-                <img src="assets/images/icons/social_media/youtube.png" alt="YouTube">
-            </a>
-        </section>
+                <a href="http://www.instagram.com/StarbucksPH">
+                    <img src="assets/images/icons/social_media/instagram.png" alt="Instagram">
+                </a>
 
-        <p>© 2026 CLG 3 (meta) Company. All rights reserved.</p>
-    </footer>
+                <a href="https://www.youtube.com/channel/UColvYenSJ5Lc4cKrlb0Ajrw">
+                    <img src="assets/images/icons/social_media/youtube.png" alt="YouTube">
+                </a>
+            </section>
 
-    <script type="module" src="assets/js/common.js"></script>
-    <script type="module" src="assets/js/menu.js"></script>
+            <p>© 2026 CLG 3 (meta) Company. All rights reserved.</p>
+        </footer>
+
+        <script src="assets/js/common.js"></script>
+        <script src="assets/js/menu.js"></script>
 </body>
 
 </html>

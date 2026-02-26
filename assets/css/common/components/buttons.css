@@ -16,7 +16,8 @@ a.positive-button {
 }
 
 /* variants */
-.button, .default-button {
+.button,
+.default-button {
     background-color: transparent;
     color: var(--text-color);
 }
