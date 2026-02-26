@@ -97,6 +97,7 @@
 .branch-card.featured {
     background: #eef6f1;
     border-color: #b2d8c6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .branch-card.featured::before {
