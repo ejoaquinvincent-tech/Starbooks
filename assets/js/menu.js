@@ -63,7 +63,7 @@ function getPrice(productId, size) {
 const cart = new Map();
 
 function addToCart(productId, event) {
-    event?.preventDefault();
+    if (event) event.preventDefault();
 
     if (!cart.has(productId))
         cart.set(productId, { quantity: 0, size: "tall" });
