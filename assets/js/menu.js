@@ -59,66 +59,51 @@ function getPrice(productId, size) {
     return product.price; // tall
 }
 
-function computeIfAbsent(map, key, mappingFunction) {
-    if (map.has(key)) {
-        return map.get(key);
-    } else {
-        const newValue = mappingFunction(key);
-        if (newValue !== null && newValue !== undefined) {
-            map.set(key, newValue);
-            return newValue;
-        }
-    }
-}
-
 // the cart
-let cart = new Map();
+const cart = new Map();
 
 function addToCart(productId, event) {
-    console.log("Adding product ID " + productId + " to cart.");
-    if (event) event.preventDefault(); // prevents the page from snapping to the top when you click a product
+    event?.preventDefault();
 
-    computeIfAbsent(
-        cart, productId,
-        () => ({ quantity: 0, size: "tall" }) // default quantity is 0, size is tall
-    ).quantity++;
+    if (!cart.has(productId))
+        cart.set(productId, { quantity: 0, size: "tall" });
 
+    cart.get(productId).quantity++;
     updateCartDisplay();
 }
 
 function changeSize(productId, newSize) {
-    if (cart.has(productId)) {
-        cart.get(productId).size = newSize;
-        updateCartDisplay();
-    }
+    if (!cart.has(productId)) return;
+
+    cart.get(productId).size = newSize;
+    updateCartDisplay();
 }
 
 function decreaseQuantity(productId) {
     if (!cart.has(productId)) return;
 
-    const itemData = cart.get(productId);
-    if (itemData.quantity > 1) {
-        itemData.quantity--;
-    } else {
-        cart.delete(productId);
-    }
+    const item = cart.get(productId);
+
+    if (item.quantity > 1) item.quantity--;
+    else cart.delete(productId);
 
     updateCartDisplay();
 }
 
-let emptyCartHtml = '<p class="empty-cart-message">Your cart is empty.</p>';
+function buildSizeBtn(productId, size, current) {
+    return `<button class="cart-size-btn ${size === current ? 'active' : ''}" onclick="changeSize(${productId}, '${size}')">
+        ${size.charAt(0).toUpperCase() + size.slice(1)}
+    </button>`;
+}
 
-function buildCartItemHtml(productId, quantity, size) {
-    const product = ID_TO_PRODUCT_MAP[productId];
-    const price = getPrice(productId, size);
-    const itemTotal = price * quantity;
+function buildCartItemHtml(productId, { quantity, size }) {
+    const { name } = ID_TO_PRODUCT_MAP[productId];
+    const itemTotal = getPrice(productId, size) * quantity;
 
-    return `<div class="cart-item"> 
-        <span class="cart-item-name">${product.name}</span>
+    return `<div class="cart-item">
+        <span class="cart-item-name">${name}</span>
         <div class="cart-size-selector">
-            <button class="cart-size-btn ${size === 'tall' ? 'active' : ''}" onclick="changeSize(${productId}, 'tall')">Tall</button>
-            <button class="cart-size-btn ${size === 'grande' ? 'active' : ''}" onclick="changeSize(${productId}, 'grande')">Grande</button>
-            <button class="cart-size-btn ${size === 'venti' ? 'active' : ''}" onclick="changeSize(${productId}, 'venti')">Venti</button>
+            ${['tall', 'grande', 'venti'].map(s => buildSizeBtn(productId, s, size)).join('')}
         </div>
         <div class="cart-item-bottom">
             <div class="quantity-controls">
@@ -132,28 +117,35 @@ function buildCartItemHtml(productId, quantity, size) {
 }
 
 function updateCartDisplay() {
-    let cartItems = document.getElementById('cart-items-container');
-    let cartTotal = document.getElementById('cart-total');
+    const cartItems = document.getElementById('cart-items-container');
+    const cartTotal = document.getElementById('cart-total');
 
     if (cart.size === 0) {
-        cartItems.innerHTML = emptyCartHtml;
+        cartItems.innerHTML = '<p class="empty-cart-message">Your cart is empty.</p>';
         cartTotal.textContent = 'Total: P 0';
         return;
     }
 
-    let html = '';
     let total = 0;
+    let html = '';
 
-    for (const [id, data] of cart.entries()) {
-        const price = getPrice(id, data.size);
-        const itemTotal = price * data.quantity;
-        total += itemTotal;
-
-        html += buildCartItemHtml(id, data.quantity, data.size);
+    for (const [id, data] of cart) {
+        total += getPrice(id, data.size) * data.quantity;
+        html += buildCartItemHtml(id, data);
     }
 
     cartItems.innerHTML = html;
     cartTotal.textContent = `Total: P ${total}`;
+
+    localStorage.setItem('cart', JSON.stringify(Array.from(cart.entries())));
 }
 
-updateCartDisplay(); // initialize cart display on page load
+
+const savedCart = JSON.parse(localStorage.getItem('cart'));
+if (savedCart) {
+    for (const [id, data] of savedCart) {
+        cart.set(parseInt(id), data);
+    }
+}
+
+updateCartDisplay();
