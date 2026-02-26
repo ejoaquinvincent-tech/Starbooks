@@ -6,47 +6,61 @@ const VENTI_EXTRA = 30;
 // ID_TO_PRODUCT_MAP maps an id to a product's data.
 // say we call ID_TO_PRODUCT_MAP[0], this will return:
 // {
-//     name: "Hot Tea (Teavana)",
-//     price: 145
+//     name: "Iced Raspberry Chocolate Mousse Oatmilk Latte",
+//     price: 205
 // }
 // which we can then access using:
-//   ID_TO_PRODUCT_MAP[0].name     → "Hot Tea (Teavana)"
-//   ID_TO_PRODUCT_MAP[0].price    → 145  (this is the tall/base price)
+//   ID_TO_PRODUCT_MAP[0].name     → "Iced Raspberry Chocolate Mousse Oatmilk Latte"
+//   ID_TO_PRODUCT_MAP[0].price    → 205  (this is the tall/base price)
 //
 // to get grande/venti prices, use the getPrice() helper below instead of
 // accessing .price directly, so the offsets are handled for you.
 //
 // it's const because product data doesn't change on runtime.
 const ID_TO_PRODUCT_MAP = [
-    // Teas
-    { name: "Hot Tea (Teavana)", price: 145 }, // ID: 0
-    { name: "Full Leaf Brewed Tea", price: 155 }, // ID: 1
-    { name: "Iced Tea", price: 165 }, // ID: 2
+    // Featured Drinks
+    { name: "Iced Raspberry Chocolate Mousse Oatmilk Latte", price: 205 }, // ID: 0
+    { name: "Raspberry Chocolate Mousse Oatmilk Latte", price: 195 },      // ID: 1
+    { name: "Raspberry Chocolate Mousse Oatmilk Frappuccino", price: 210 }, // ID: 2
 
-    // Frappuccinos
-    { name: "Cream-Based Frappuccino (Classic Vanilla/Caramel Cream)", price: 185 }, // ID: 3
-    { name: "Chai Tea Cream Frappuccino", price: 195 }, // ID: 4
-    { name: "White Chocolate Cream Frappuccino", price: 205 }, // ID: 5
-    { name: "Raspberry Chocolate Mousse Oatmilk Frappuccino", price: 210 }, // ID: 6
+    // Brewed Coffee — Hot
+    { name: "Hot Brewed Coffee", price: 125 }, // ID: 3
 
-    // Espresso & Lattes
-    { name: "Hot Espresso", price: { solo: 110, doppio: 125 } }, // ID: 7  (uses solo/doppio instead of sizes)
-    { name: "Hot Latte / Cappuccino", price: 165 },                        // ID: 8
-    { name: "Iced Latte", price: 175 },                        // ID: 9
-    { name: "Iced Raspberry Chocolate Mousse Oatmilk Latte", price: 205 },                        // ID: 10
-    { name: "Raspberry Chocolate Mousse Oatmilk Latte (Hot)", price: 195 },                        // ID: 11
+    // Brewed Coffee — Iced
+    { name: "Vanilla Sweet Cream Cold Brew", price: 185 },          // ID: 4
+    { name: "Dark Caramel Nitro Cold Brew", price: 195 },           // ID: 5
+    { name: "Nitro Vanilla Sweet Cream Cold Brew", price: 195 },    // ID: 6
 
-    // Brewed Coffee
-    { name: "Hot Brewed Coffee", price: 125 }, // ID: 12
-    { name: "Iced Coffee", price: 145 }, // ID: 13
+    // Espresso — Hot
+    { name: "Flat White", price: 175 },         // ID: 7
+    { name: "Espresso Con Panna", price: 145 }, // ID: 8
+
+    // Espresso — Iced
+    { name: "Iced Cappuccino", price: 175 },  // ID: 9
+    { name: "Iced Americano", price: 155 },   // ID: 10
+
+    // Blended Beverage — Cream-based Frappuccino
+    { name: "Pure Matcha Cream Frappuccino", price: 200 },       // ID: 11
+    { name: "Chocolate Chip Cream Frappuccino", price: 195 },    // ID: 12
+
+    // Blended Beverage — Coffee-based Frappuccino
+    { name: "Java Chip Frappuccino", price: 210 },       // ID: 13
+    { name: "Triple Mocha Frappuccino", price: 215 },    // ID: 14
+
+    // Teavana Tea — Hot
+    { name: "Full Leaf Brewed Tea", price: 155 }, // ID: 15
+
+    // Teavana Tea — Iced
+    { name: "Iced Pure Matcha Latte", price: 185 },                      // ID: 16
+    { name: "Iced Vanilla Cold Foam Coffee Jelly Black Tea", price: 195 }, // ID: 17
+    { name: "Iced Black Tea Latte", price: 175 },                         // ID: 18
 ];
 
 // getPrice(productId, size) handles the offset math for you.
 // e.g.
-//   getPrice(0, "tall")   → 145
-//   getPrice(0, "grande") → 160
-//   getPrice(0, "venti")  → 175
-//   getPrice(7, "doppio") → 125
+//   getPrice(0, "tall")   → 205
+//   getPrice(0, "grande") → 220
+//   getPrice(0, "venti")  → 235
 function getPrice(productId, size) {
     const product = ID_TO_PRODUCT_MAP[productId];
 
@@ -117,8 +131,12 @@ function buildCartItemHtml(productId, { quantity, size }) {
 }
 
 function updateCartDisplay() {
+    localStorage.setItem('cart', JSON.stringify(Array.from(cart.entries())));
+
     const cartItems = document.getElementById('cart-items-container');
     const cartTotal = document.getElementById('cart-total');
+
+    document.getElementById('checkout-button').disabled = cart.size === 0;
 
     if (cart.size === 0) {
         cartItems.innerHTML = '<p class="empty-cart-message">Your cart is empty.</p>';
@@ -136,8 +154,6 @@ function updateCartDisplay() {
 
     cartItems.innerHTML = html;
     cartTotal.textContent = `Total: P ${total}`;
-
-    localStorage.setItem('cart', JSON.stringify(Array.from(cart.entries())));
 }
 
 

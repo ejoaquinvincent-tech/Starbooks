@@ -20,6 +20,9 @@ html[ui-theme="light"] */
     --button-positive-text-color: #FFF;
     --button-positive-hover-color: rgba(0, 0, 0, 0.7);
 
+    --button-positive-disabled-bg-color: #555;
+    --button-positive-disabled-text-color: #AAA;
+
     --font: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 

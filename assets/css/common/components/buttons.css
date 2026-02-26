@@ -39,6 +39,13 @@ a.positive-button {
     color: var(--button-positive-text-color);
 }
 
+.positive-button:disabled {
+    background-color: var(--button-positive-disabled-bg-color);
+    color: var(--button-positive-disabled-text-color);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 .positive-button:hover {
     background-color: var(--button-positive-hover-color);
 }

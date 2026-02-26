@@ -25,44 +25,60 @@
     </header>
 
     <div class="main-container">
+        <div class="floating-cart fixed-bottom-right floating-card">
+            <h4>Your cart</h4>
+            <div class="divider"></div>
+            <div id="cart-items-container"></div>
+            <div class="cart-footer">
+                <div class="divider"></div>
+                <div class="cart-total" id="cart-total">Total: P 0</div>
+            </div>
+            <button class="positive-button checkout-button" id="checkout-button"
+                onclick="alert('Checkout functionality coming soon!')">Checkout</button>
+        </div>
+
         <div class="menu-page">
+
+            <!-- FEATURED DRINKS -->
             <section class="menu-section">
                 <h2 class="section-title">Featured Drinks</h2>
+                <div class="divider divider--section"></div>
                 <div class="item-grid">
-                    <a href="#" class="item" onclick="addToCart(10, event)">
+                    <a href="#" class="item" onclick="addToCart(0, event)">
                         <div class="item-circle">
-                            <img src="" alt="Iced Raspberry Chocolate Mousse Oatmilk Latte">
+                            <img src="assets/images/products/latte/iced_raspberry_chocolate_mousse_oatmilk/normal.jpg" alt="Iced Raspberry Chocolate Mousse Oatmilk Latte">
                             <div class="add-to-cart"><span>Add to Cart</span></div>
                         </div>
                         <span class="item-name">Iced Raspberry Chocolate Mousse Oatmilk Latte</span>
                     </a>
 
-                    <a href="#" class="item" onclick="addToCart(11, event)">
+                    <a href="#" class="item" onclick="addToCart(1, event)">
                         <div class="item-circle">
-                            <img src="" alt="Raspberry Chocolate Mousse Oatmilk Latte">
+                            <img src="assets/images/products/latte/raspberry_chocolate_mousse_oatmilk/normal.jpg" alt="Raspberry Chocolate Mousse Oatmilk Latte">
                             <div class="add-to-cart"><span>Add to Cart</span></div>
                         </div>
                         <span class="item-name">Raspberry Chocolate Mousse Oatmilk Latte</span>
                     </a>
 
-                    <a href="#" class="item" onclick="addToCart(6, event)">
+                    <a href="#" class="item" onclick="addToCart(2, event)">
                         <div class="item-circle">
-                            <img src="" alt="Raspberry Chocolate Mousse Oatmilk Frappuccino">
+                            <img src="assets/images/products/frappucinos/raspberry_chocolate_mousse_oatmilk/normal.jpg" alt="Raspberry Chocolate Mousse Oatmilk Frappuccino">
                             <div class="add-to-cart"><span>Add to Cart</span></div>
                         </div>
                         <span class="item-name">Raspberry Chocolate Mousse Oatmilk Frappuccino</span>
                     </a>
-
                 </div>
             </section>
 
+            <!-- BREWED COFFEE -->
             <section class="menu-section">
                 <h2 class="section-title">Brewed Coffee</h2>
+                <div class="divider divider--section"></div>
 
                 <div class="sub-section">
                     <p class="sub-title">Hot Coffee</p>
                     <div class="item-grid">
-                        <a href="#" class="item" onclick="addToCart(12, event)">
+                        <a href="#" class="item" onclick="addToCart(3, event)">
                             <div class="item-circle">
                                 <img src="" alt="Hot Brewed Coffee">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
@@ -72,84 +88,144 @@
                     </div>
                 </div>
 
+                <div class="divider"></div>
                 <div class="sub-section">
                     <p class="sub-title">Iced Coffee</p>
                     <div class="item-grid">
-                        <a href="#" class="item" onclick="addToCart(13, event)">
+                        <a href="#" class="item" onclick="addToCart(4, event)">
                             <div class="item-circle">
-                                <img src="" alt="Iced Coffee">
+                                <img src="" alt="Vanilla Sweet Cream Cold Brew">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
                             </div>
-                            <span class="item-name">Iced Coffee</span>
+                            <span class="item-name">Vanilla Sweet Cream Cold Brew</span>
+                        </a>
+
+                        <a href="#" class="item" onclick="addToCart(5, event)">
+                            <div class="item-circle">
+                                <img src="" alt="Dark Caramel Nitro Cold Brew">
+                                <div class="add-to-cart"><span>Add to Cart</span></div>
+                            </div>
+                            <span class="item-name">Dark Caramel Nitro Cold Brew</span>
+                        </a>
+
+                        <a href="#" class="item" onclick="addToCart(6, event)">
+                            <div class="item-circle">
+                                <img src="" alt="Nitro Vanilla Sweet Cream Cold Brew">
+                                <div class="add-to-cart"><span>Add to Cart</span></div>
+                            </div>
+                            <span class="item-name">Nitro Vanilla Sweet Cream Cold Brew</span>
                         </a>
                     </div>
                 </div>
             </section>
 
+            <!-- ESPRESSO -->
             <section class="menu-section">
                 <h2 class="section-title">Espresso</h2>
+                <div class="divider divider--section"></div>
 
                 <div class="sub-section">
                     <p class="sub-title">Hot Espresso</p>
                     <div class="item-grid">
                         <a href="#" class="item" onclick="addToCart(7, event)">
                             <div class="item-circle">
-                                <img src="" alt="Espresso">
+                                <img src="" alt="Flat White">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
                             </div>
-                            <span class="item-name">Espresso</span>
+                            <span class="item-name">Flat White</span>
+                        </a>
+
+                        <a href="#" class="item" onclick="addToCart(8, event)">
+                            <div class="item-circle">
+                                <img src="" alt="Espresso Con Panna">
+                                <div class="add-to-cart"><span>Add to Cart</span></div>
+                            </div>
+                            <span class="item-name">Espresso Con Panna</span>
                         </a>
                     </div>
                 </div>
 
+                <div class="divider"></div>
                 <div class="sub-section">
                     <p class="sub-title">Iced Espresso</p>
                     <div class="item-grid">
-                        <a href="#" class="item" onclick="addToCart(8, event)">
+                        <a href="#" class="item" onclick="addToCart(9, event)">
                             <div class="item-circle">
-                                <img src="" alt="Iced Espresso">
+                                <img src="" alt="Iced Cappuccino">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
                             </div>
-                            <span class="item-name">Iced Espresso</span>
+                            <span class="item-name">Iced Cappuccino</span>
+                        </a>
+
+                        <a href="#" class="item" onclick="addToCart(10, event)">
+                            <div class="item-circle">
+                                <img src="" alt="Iced Americano">
+                                <div class="add-to-cart"><span>Add to Cart</span></div>
+                            </div>
+                            <span class="item-name">Iced Americano</span>
                         </a>
                     </div>
                 </div>
             </section>
 
+            <!-- BLENDED BEVERAGE -->
             <section class="menu-section">
                 <h2 class="section-title">Blended Beverage</h2>
+                <div class="divider divider--section"></div>
 
                 <div class="sub-section">
                     <p class="sub-title">Cream-based Frappuccino</p>
                     <div class="item-grid">
-
-                        <a href="#" class="item">
+                        <a href="#" class="item" onclick="addToCart(11, event)">
                             <div class="item-circle">
-                                <img src="" alt="Chai Tea Cream Frappuccino">
+                                <img src="assets/images/products/frappucinos/pure_matcha_cream_frappuccino/normal.jpg" alt="Pure Matcha Cream Frappuccino">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
                             </div>
-                            <span class="item-name">Chai Tea Cream Frappuccino</span>
+                            <span class="item-name">Pure Matcha Cream Frappuccino</span>
                         </a>
 
-                        <a href="#" class="item">
+                        <a href="#" class="item" onclick="addToCart(12, event)">
                             <div class="item-circle">
-                                <img src="" alt="White Chocolate Cream Frappuccino">
+                                <img src="" alt="Chocolate Chip Cream Frappuccino">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
                             </div>
-                            <span class="item-name">White Chocolate Cream Frappuccino</span>
+                            <span class="item-name">Chocolate Chip Cream Frappuccino</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                <div class="sub-section">
+                    <p class="sub-title">Coffee-based Frappuccino</p>
+                    <div class="item-grid">
+                        <a href="#" class="item" onclick="addToCart(13, event)">
+                            <div class="item-circle">
+                                <img src="" alt="Java Chip Frappuccino">
+                                <div class="add-to-cart"><span>Add to Cart</span></div>
+                            </div>
+                            <span class="item-name">Java Chip Frappuccino</span>
                         </a>
 
+                        <a href="#" class="item" onclick="addToCart(14, event)">
+                            <div class="item-circle">
+                                <img src="" alt="Triple Mocha Frappuccino">
+                                <div class="add-to-cart"><span>Add to Cart</span></div>
+                            </div>
+                            <span class="item-name">Triple Mocha Frappuccino</span>
+                        </a>
                     </div>
                 </div>
             </section>
 
+            <!-- TEAVANA TEA -->
             <section class="menu-section">
                 <h2 class="section-title">Teavana Tea</h2>
+                <div class="divider divider--section"></div>
 
                 <div class="sub-section">
                     <p class="sub-title">Hot Tea</p>
                     <div class="item-grid">
-                        <a href="#" class="item">
+                        <a href="#" class="item" onclick="addToCart(15, event)">
                             <div class="item-circle">
                                 <img src="" alt="Full Leaf Brewed Tea">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
@@ -159,29 +235,37 @@
                     </div>
                 </div>
 
+                <div class="divider"></div>
                 <div class="sub-section">
                     <p class="sub-title">Iced Tea</p>
                     <div class="item-grid">
-                        <a href="#" class="item">
+                        <a href="#" class="item" onclick="addToCart(16, event)">
                             <div class="item-circle">
-                                <img src="" alt="Iced Tea">
+                                <img src="" alt="Iced Pure Matcha Latte">
                                 <div class="add-to-cart"><span>Add to Cart</span></div>
                             </div>
-                            <span class="item-name">Iced Tea</span>
+                            <span class="item-name">Iced Pure Matcha Latte</span>
+                        </a>
+
+                        <a href="#" class="item" onclick="addToCart(17, event)">
+                            <div class="item-circle">
+                                <img src="" alt="Iced Vanilla Cold Foam Coffee Jelly Black Tea">
+                                <div class="add-to-cart"><span>Add to Cart</span></div>
+                            </div>
+                            <span class="item-name">Iced Vanilla Cold Foam Coffee Jelly Black Tea</span>
+                        </a>
+
+                        <a href="#" class="item" onclick="addToCart(18, event)">
+                            <div class="item-circle">
+                                <img src="" alt="Iced Black Tea Latte">
+                                <div class="add-to-cart"><span>Add to Cart</span></div>
+                            </div>
+                            <span class="item-name">Iced Black Tea Latte</span>
                         </a>
                     </div>
                 </div>
             </section>
-        </div>
 
-        <div class="floating-cart fixed-bottom-right floating-card">
-            <h4>Your cart</h4>
-            <hr>
-            <div id="cart-items-container"></div>
-            <div class="cart-footer">
-                <hr>
-                <div class="cart-total" id="cart-total">Total: P 0</div>
-            </div>
         </div>
 
         <footer class="footer">
@@ -191,9 +275,8 @@
                 <a href="/customer-service.html">Customer Service</a>
             </div>
 
-            <!-- <p class="secondary-text">Starbucks Corporation is an American multinational chain of coffeehouses and roastery reserves headquartered in Seattle, Washington. It is the world's largest coffeehouse chain.</p> -->
             <br><br>
-            <div class="section-divider"></div>
+            <div class="divider"></div>
             <br><br>
             <section class="links-container">
                 <a href="http://www.facebook.com/StarbucksPhilippines">
