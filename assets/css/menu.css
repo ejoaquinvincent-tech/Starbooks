@@ -123,3 +123,12 @@
     color: var(--text-color);
     max-width: 100px;
 }
+
+.floating-cart {
+    margin-bottom: 24px;
+    margin-right: 24px;
+
+    height: 35%;
+    
+}
+
